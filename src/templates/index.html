@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Docker</title>
+    <link rel="icon" type="image/x-icon" href="../assets/docker.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="../static/css/styles.css" rel="stylesheet" />
+    <link href="../static/css/normalize.css" rel="stylesheet" />
+
+</head>
+
+<body id="page-top">
+    <nav class="navbar navbar-dark bg-dark fixed-top" aria-label="First navbar example">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#page-top">Docker FATEC</a>
+            <button class="navbar-toggler collapsed " type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarsExample01" style="">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#guide">Guia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-primary bg-gradient text-white">
+        <div class="container px-1 text-center">
+            <a class="btn btn-lg btn-dark" href="#inicio">Vamos aprender ?!</a>
+        </div>
+    </header>
+
+    <section id="inicio">
+        <div class="container">
+            <div class="about text-dark ">
+                <h2>O que é o Docker?</h2>
+                <p>O Docker é uma plataforma de virtualização de contêiner de código aberto que simplifica a criação, o
+                    gerenciamento e a execução de aplicativos em ambientes isolados conhecidos como contêineres. Ele
+                    oferece um ambiente controlado e independente para empacotar aplicativos e suas dependências,
+                    permitindo que eles sejam executados de maneira consistente em qualquer sistema que suporte o
+                    Docker. Isso resulta em maior eficiência no desenvolvimento, escalabilidade, portabilidade e
+                    simplifica a gestão de dependências, tornando o Docker uma ferramenta valiosa para desenvolvedores e
+                    equipes de desenvolvimento.</p>
+
+                <h2>Por que usar o Docker:</h2>
+                <ul>
+                    <li><strong>Isolamento de Aplicativos:</strong> O Docker permite isolar aplicativos e suas
+                        dependências em contêineres, garantindo que eles não interfiram uns nos outros. Isso evita
+                        conflitos de bibliotecas e ambientes e simplifica o gerenciamento de dependências.</li>
+                    <li><strong>Portabilidade:</strong> Os contêineres Docker são portáteis e podem ser executados em
+                        qualquer sistema que suporte o Docker. Isso significa que você pode criar um ambiente de
+                        desenvolvimento em sua máquina local e implantá-lo em servidores de produção com confiança,
+                        mantendo a consistência.</li>
+                    <li><strong>Eficiência no Desenvolvimento:</strong> Com o Docker, você pode empacotar um aplicativo
+                        e todas as suas dependências em um único contêiner, o que simplifica a configuração e o
+                        compartilhamento de ambientes de desenvolvimento com outros membros da equipe.</li>
+                    <li><strong>Escalabilidade:</strong> O Docker facilita a escalabilidade de aplicativos, permitindo a
+                        rápida criação de réplicas de contêineres em ambientes de produção, o que é fundamental para
+                        atender a demandas variáveis de carga.</li>
+                    <li><strong>Facilidade de Implantação:</strong> O Docker oferece uma maneira consistente de
+                        implantar aplicativos em diferentes ambientes, tornando a implantação e o gerenciamento de
+                        aplicativos mais previsíveis e confiáveis.</li>
+                </ul>
+                <img class="image-docker" src="../static/img/docker-containerized.png">
+                <p>Na imagem acima, é possível notar a diferença entre máquinas virtuais e Docker. Essa nova arquitetura
+                    simplifica significativamente o uso de recursos e a sobrecarga do sistema ao configurar e distribuir
+                    aplicações, independentemente do provedor de hospedagem.
+                    A principal vantagem dessa arquitetura é a eliminação da necessidade de hardware adicional para o
+                    sistema operacional hospedeiro, já que tudo é tratado como contêiner.</p>
+
+                <h2>Componentes do Docker</h2>
+
+                <p>Os componentes do Docker são os elementos-chave que constituem o ecossistema do Docker e permitem a
+                    criação, execução e gerenciamento de contêineres. Esses componentes incluem:</p>
+
+                <h4>Docker Daemon</h4>
+                <p>O Docker Daemon é um serviço que roda em segundo plano no sistema hospedeiro. Ele é responsável por
+                    criar, executar e gerenciar contêineres. Os clientes do Docker se comunicam com o Docker Daemon para
+                    realizar ações, como criar ou parar contêineres.</p>
+
+                <h4>Docker Client</h4>
+                <p>O Docker Client é a interface pela qual os usuários interagem com o Docker. Os usuários enviam
+                    comandos para o Docker Client, que, por sua vez, os encaminha para o Docker Daemon. Esses comandos
+                    podem ser executados na linha de comando ou por meio de APIs.</p>
+
+                <h4>Imagens Docker</h4>
+                <p>As imagens Docker são modelos de sistema de arquivos somente leitura usados para criar contêineres.
+                    Elas contêm todos os recursos necessários para executar um aplicativo, incluindo código, bibliotecas
+                    e dependências. As imagens são a base para a criação de contêineres.</p>
+
+                <h4>Contêineres Docker</h4>
+                <p>Os contêineres Docker são instâncias em execução de imagens. Eles contêm o aplicativo e seu ambiente
+                    isolado, incluindo sistemas de arquivos, variáveis de ambiente e configurações. Os contêineres são
+                    leves, portáteis e podem ser implantados de maneira consistente em vários ambientes.</p>
+
+                <h4>Docker Hub</h4>
+                <p>O Docker Hub é um repositório público onde você pode encontrar, compartilhar e distribuir imagens
+                    Docker. Ele é uma fonte central de imagens prontas para uso, permitindo que os usuários acessem e
+                    compartilhem facilmente imagens Docker.</p>
+
+                <p>Esses são os principais componentes do Docker que trabalham juntos para simplificar o
+                    desenvolvimento, distribuição e execução de aplicativos em contêineres. Eles oferecem uma solução
+                    eficiente e escalável para empacotar e implantar aplicativos, além de fornecer isolamento e
+                    portabilidade.</p>
+
+                <img class="image-docker" src="../static/img/docker-components.png" alt="docker-components">
+            </div>
+        </div>
+    </section>
+
+    <section id="guide">
+        <div class="container">
+            <div class="guide text-dark">
+
+                <h2>Instalando o Docker</h2>
+                <p>Para começar a usar o Docker, siga estas instruções para instalar o Docker no seu sistema
+                    operacional:</p>
+
+                <h3>Linux (Ubuntu)</h3>
+
+                <p>Se o seu sistema operacional for Linux, como o Ubuntu, siga os seguintes passos para instalar o
+                    Docker:</p>
+
+                <ol>
+                    <li>
+                        <p>Abra o terminal. Baixe as últimas atualizações do sistema:</p>
+                        <pre><code>$ sudo apt update && sudo apt upgrade</code></pre>
+                    </li>
+                    <li>
+                        <p>Instale o Docker utilizando o repositório do Ubuntu 22.04:</p>
+                        <pre><code>$ sudo apt install docker.io</code></pre>
+                    </li>
+                    <li>
+                        <p>Inicie o Docker:</p>
+                        <pre><code>$ sudo systemctl start docker</code></pre>
+                    </li>
+                    <li>
+                        <p>Garanta que ele seja iniciado após a reinicialização:</p>
+                        <pre><code>$ sudo systemctl enable docker</code></pre>
+                    </li>
+                    <li>
+                        <p>Caso queira verificar a versão instalada:</p>
+                        <pre><code>$ docker -v</code></pre>
+                    </li>
+                </ol>
+
+                <h3>Windows</h3>
+                <p>1. Baixe o instalador do Docker para Windows a partir do site oficial:
+                    <a href="https://www.docker.com/products/docker-desktop" target="_blank">Download para Windows</a>
+                </p>
+                <p>2. Siga as instruções de instalação do instalador.</p>
+                <p>3. Após a instalação, verifique a versão do Docker com:</p>
+                <pre><code>docker --version</code></pre>
+
+                <h3>Mac</h3>
+                <p>1. Baixe o instalador do Docker para Mac a partir do site oficial:
+                    <a href="https://www.docker.com/products/docker-desktop" target="_blank">Download para Mac</a>
+                </p>
+                <p>2. Siga as instruções de instalação do instalador.</p>
+                <p>3. Após a instalação, verifique a versão do Docker com:</p>
+                <pre><code>docker --version</code></pre>
+
+                <section>
+                    <h2>Lista de Comandos</h2>
+                    <p>Aqui está uma lista de comandos Docker básicos e suas descrições:</p>
+                    <ul>
+                        <li><strong>attach:</strong> Anexa a um contêiner em execução.</li>
+                        <li><strong>build:</strong> Constrói uma imagem a partir de um Dockerfile.</li>
+                        <li><strong>commit:</strong> Cria uma nova imagem a partir das alterações em um contêiner.</li>
+                        <li><strong>cp:</strong> Copia arquivos/pastas entre um contêiner e o sistema de arquivos local.
+                        </li>
+                        <li><strong>create:</strong> Cria um novo contêiner.</li>
+                        <li><strong>diff:</strong> Inspeciona as mudanças no sistema de arquivos de um contêiner.</li>
+                        <li><strong>events:</strong> Obtém eventos em tempo real do servidor Docker.</li>
+                        <li><strong>exec:</strong> Executa um comando em um contêiner em execução.</li>
+                        <li><strong>export:</strong> Exporta o sistema de arquivos de um contêiner como um arquivo tar.
+                        </li>
+                        <li><strong>history:</strong> Exibe o histórico de uma imagem.</li>
+                        <li><strong>images:</strong> Lista imagens disponíveis.</li>
+                        <li><strong>import:</strong> Importa o conteúdo de um arquivo tar para criar uma imagem do
+                            sistema
+                            de arquivos.</li>
+                        <li><strong>info:</strong> Exibe informações do sistema em todo o Docker.</li>
+                        <li><strong>inspect:</strong> Retorna informações de baixo nível sobre um contêiner ou imagem.
+                        </li>
+                        <li><strong>kill:</strong> Encerra a execução de um contêiner em execução.</li>
+                        <li><strong>load:</strong> Carrega uma imagem de um arquivo tar ou da entrada padrão.</li>
+                        <li><strong>login:</strong> Efetua login em um registro Docker.</li>
+                        <li><strong>logout:</strong> Encerra a sessão em um registro Docker.</li>
+                        <li><strong>logs:</strong> Obtém os registros de um contêiner.</li>
+                        <li><strong>network:</strong> Gerencia redes Docker.</li>
+                        <li><strong>pause:</strong> Pausa todos os processos dentro de um contêiner.</li>
+                        <li><strong>port:</strong> Lista o mapeamento de portas ou um mapeamento específico de um
+                            contêiner.
+                        </li>
+                        <li><strong>ps:</strong> Lista contêineres em execução.</li>
+                        <li><strong>pull:</strong> Baixa uma imagem ou repositório de um registro.</li>
+                        <li><strong>push:</strong> Envia uma imagem ou repositório para um registro.</li>
+                        <li><strong>rename:</strong> Renomeia um contêiner.</li>
+                        <li><strong>restart:</strong> Reinicia um contêiner.</li>
+                        <li><strong>rm:</strong> Remove um ou mais contêineres.</li>
+                        <li><strong>rmi:</strong> Remove uma ou mais imagens.</li>
+                        <li><strong>run:</strong> Executa um comando em um novo contêiner.</li>
+                        <li><strong>save:</strong> Salva uma ou mais imagens em um arquivo tar.</li>
+                        <li><strong>search:</strong> Procura o Docker Hub por imagens.</li>
+                        <li><strong>start:</strong> Inicia um ou mais contêineres parados.</li>
+                        <li><strong>stats:</strong> Exibe uma transmissão ao vivo das estatísticas de uso de recursos
+                            do(s)
+                            contêiner(es).</li>
+                        <li><strong>stop:</strong> Interrompe a execução de um contêiner em execução.</li>
+                        <li><strong>tag:</strong> Define uma tag em uma imagem para um registro.</li>
+                        <li><strong>top:</strong> Exibe os processos em execução em um contêiner.</li>
+                        <li><strong>unpause:</strong> Continua todos os processos dentro de um contêiner pausado.</li>
+                        <li><strong>update:</strong> Atualiza a configuração de um ou mais contêineres.</li>
+                        <li><strong>version:</strong> Exibe informações sobre a versão do Docker.</li>
+                        <li><strong>volume:</strong> Gerencia volumes Docker.</li>
+                        <li><strong>wait:</strong> Bloqueia até que um contêiner pare e, em seguida, exibe o código de
+                            saída.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Iniciando com Docker</h2>
+                    <p>Vamos começar nossa jornada no mundo do Docker executando um contêiner a partir da imagem do
+                        Ubuntu.</p>
+
+                    <p>Em um terminal ou prompt de comando, digite o seguinte comando:</p>
+
+                    <pre><code>$ docker run -it ubuntu /bin/bash</code></pre>
+
+                    <p>Isso iniciará um contêiner interativo do Ubuntu, onde você pode executar comandos sem a
+                        necessidade de usar o sudo, pois você já possui privilégios de superusuário (root).</p>
+
+                    <p>Teste executando os comandos a seguir:</p>
+
+                    <pre><code>$ apt-get update</code></pre>
+
+                    <p>Agora você está dentro de um ambiente interativo Docker.</p>
+
+                    <p>Para listar os contêineres em execução, utilize o comando:</p>
+
+                    <pre><code>$ docker ps</code></pre>
+
+                    <p>Para visualizar o último contêiner criado, use:</p>
+
+                    <pre><code>$ docker ps -l</code></pre>
+
+                    <p>Se desejar listar todos os contêineres, incluindo os inativos, utilize:</p>
+
+                    <pre><code>$ docker ps -a</code></pre>
+
+                    <p>Para interromper a execução de um contêiner em execução, digite:</p>
+
+                    <pre><code>$ docker stop ID_do_Contêiner</code></pre>
+
+                    <p>Você pode encontrar o ID do contêiner na saída do comando
+                    <pre><code>docker ps</code></pre>.</p>
+
+                    <p>Se desejar compartilhar ou hospedar uma imagem que você configurou, crie uma conta no Docker Hub
+                        e faça o upload da imagem para o repositório com os seguintes comandos:</p>
+
+                    <pre><code>$ docker login -u username-docker</code></pre>
+                    <pre><code>$ docker push username-docker/nome-da-imagem</code></pre>
+
+                    <p>Após o upload, sua imagem estará disponível no Docker Hub.</p>
+                </section>
+
+                <section>
+                    <h2>Criando uma Aplicação Web com Docker</h2>
+                    <h4>Passo 1: Preparando os Arquivos</h4>
+                    <p>Crie os arquivos necessários para sua aplicação web, incluindo um arquivo HTML e um arquivo CSS.
+                        Você pode usar qualquer editor de texto ou ambiente de desenvolvimento de sua escolha para criar
+                        esses arquivos.</p>
+
+                    <p>Por favor, note que neste tutorial não forneceremos o código HTML e CSS específico. No entanto,
+                        você pode substituir esta seção pelo seu próprio código HTML e CSS.</p>
+
+                    <h4>Passo 2: Criando o Dockerfile</h4>
+                    <pre><code>
+# Use a imagem base do Nginx como servidor web
+FROM nginx:latest
+
+# Copie todos os arquivos da pasta local para o diretório do servidor Nginx no contêiner
+COPY . /usr/share/nginx/html/
+
+# Exponha a porta 80 para o servidor web Nginx
+EXPOSE 80
+
+# Comando para iniciar o servidor Nginx
+CMD ["nginx", "-g", "daemon off;"]
+
+                    </code></pre>
+
+                    <p>Copie o código acima e cole-o em um arquivo chamado "Dockerfile" no mesmo diretório onde você tem
+                        os arquivos HTML (index.html) que deseja servir com o Nginx. Em seguida, você pode criar uma
+                        imagem Docker a partir deste Dockerfile e executar um contêiner para hospedar sua aplicação web.
+                    </p>
+
+                    <h4>Passo 3: Construindo a Imagem Docker</h4>
+                    <p>Use o comando
+                    <pre><code>docker build</pre></code> para criar uma imagem Docker a partir do seu Dockerfile e dos
+                    arquivos HTML e CSS. Certifique-se de estar no diretório onde os arquivos estão localizados.</p>
+
+                    <pre><code>$ docker build -t minha-aplicacao-docker .</code></pre>
+
+                    <h4>Passo 4: Executando o Contêiner</h4>
+                    <p>Agora que você tem uma imagem Docker, execute um contêiner a partir dessa imagem. Você pode
+                        mapear a porta do contêiner para a porta do host para acessar sua aplicação.</p>
+
+                    <pre><code>$ docker run -d -p 8080:80 --name nome-container nome-imagem-docker
+                    </code></pre>
+
+                    <h4>Passo 5: Acessando Sua Aplicação</h4>
+                    <p>Agora você pode acessar sua aplicação web em um navegador visitando
+                    <pre><code>http://localhost:8080</code></pre>
+                    </p>
+
+                    <p>Lembre-se de que os detalhes específicos da sua aplicação, como o conteúdo do arquivo HTML e CSS,
+                        devem ser criados por você de acordo com suas necessidades.</p>
+                </section>
+
+                <section>
+                    <h2>Links Úteis e Referências Docker</h2>
+                    <h4 id="instalar"><a href="https://docs.docker.com/get-docker/" target="_blank">Como Instalar o
+                            Docker</a></h4>
+                    <h4 id="docker-compose"><a href="https://docs.docker.com/compose/install/" target="_blank">Como
+                            Instalar o Docker Compose</a></h4>
+                    <h4 id="docker-hub"><a href="https://hub.docker.com/" target="_blank">Docker Hub</a></h4>
+                    <h4 id="documentacao"><a href="https://docs.docker.com/" target="_blank">Documentação Docker</a>
+                    </h4>
+                    <h4 id="exemplos"><a href="https://docs.docker.com/samples/" target="_blank">Exemplos de Aplicações
+                            Docker</a></h4>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <div class="container">
+            <div class="conclusion text-dark">
+                <h2>Conclusão</h2>
+                <p class="lead">O Docker é uma ferramenta incrivelmente valiosa nas mãos dos programadores, pois supera
+                    muitas das limitações das abordagens mais antigas, como máquinas virtuais. No entanto, é verdade que
+                    para utilizar o Docker com eficácia, pode ser necessário escrever código para realizar várias
+                    tarefas na plataforma. Para aqueles que buscam uma solução mais direta e desejam evitar a escrita de
+                    código, existem alternativas excelentes, como o AppMaster e a abordagem "no-code". Essas opções
+                    oferecem uma maneira mais acessível e amigável de realizar tarefas de desenvolvimento sem a
+                    necessidade de habilidades de programação avançadas. Portanto, a escolha entre o Docker e as
+                    alternativas depende do seu nível de especialização e das necessidades específicas do seu projeto.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="container">
+            <div class="contato text-dark">
+                <h2>Entre em contato</h2>
+                <hr>
+               <form action="/contato" method="post">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Endereço de email</label>
+                      <input name = 'email'type="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Assunto</label>
+                      <input name = 'assunto'type="texto" class="form-control" id="exampleFormControlInput1">
+
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Texto</label>
+                      <textarea name = 'texto'class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-dark">Enviar</button>
+                  </form>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="container">
+            <h2>Sobre o Autor:</h2>
+            <img src="https://avatars.githubusercontent.com/u/53847691?s=400&u=f3a98c19b124cc997a5ddcab63ae00f590d81a19&v=4"
+                alt="fotoperfil">
+            <p class="lead">Este tutorial foi criado por mim, Michael Souza. Sou um estudante da FATEC, cursando
+                Desenvolvimento de Software Multiplataforma. Criei este site para fins acadêmicos, como parte das aulas
+                de Sistemas Operacionais e Redes, bem como Desenvolvimento Web.</p>
+            <p class="lead">Você pode me encontrar nas seguintes redes sociais:</p>
+            <a href="https://github.com/maiconsso" class="btn btn-dark me-2" target="_blank">
+                <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/michael-ssouza/" class="btn btn-dark me-2" target="_blank">
+                <i class="bi bi-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://www.instagram.com/maiconsso/" class="btn btn-dark" target="_blank">
+                <i class="bi bi-instagram"></i> Instagram
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p class="m-0"> &copy; 2023 Docker | Todos os direitos reservados</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../static/js/scripts.js"></script>
+</body>
+
+</html>
